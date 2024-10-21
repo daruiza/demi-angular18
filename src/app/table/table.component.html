@@ -1,0 +1,53 @@
+<div class="container">
+    <p-table 
+    [value]="apps()" 
+    [(selection)]="selectedApps"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowSelect($event)"
+    (selectAllChange)="onRowSelect($event)"
+    (selectionChange)="onRowSelect($event)"
+    dataKey="id" 
+    [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                    <!-- <p-tableHeaderCheckbox /> -->
+                </th>
+                <th>Name</th>
+                <th>Desarrollador</th>
+                <th>Fecha creación</th>
+                <th>Fecha producción</th>
+                <th>Estado</th>
+                <th>Tecnológia</th>
+                <th style="width: 5rem"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-app>
+            <tr>
+                <td>
+                    <!-- <p-tableCheckbox [value]="app" /> -->
+                    <p-tableRadioButton [value]="app" />
+                </td>
+                <td>{{app.name}}</td>
+                <td>{{app.developer}}</td>
+                <td>{{app.date_born}}</td>
+                <td>{{app.date_hire}}</td>
+                <td>{{app.status}}</td>
+                <td>{{app.technology}}</td>
+                <td>                    
+                    <p-button 
+                        class="p-button-primary-text" 
+                        (onClick)="selectedApp.set(app); menu.toggle($event)" 
+                        icon="pi pi-ellipsis-v" 
+                        [rounded]="true" 
+                        [text]="true" />
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-menu #menu [model]="items" [popup]="true" />    
+</div>
+
+<div class="card flex justify-content-center gap-2">
+    <p-confirmDialog />
+</div>

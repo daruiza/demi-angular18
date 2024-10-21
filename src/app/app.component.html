@@ -1,0 +1,13 @@
+<div class="container mx-auto w-full">
+  <div class="grid grid-cols-12 gap-4">
+    <div [class]="col_span()">    
+      <app-table [add_app]="add_app" [(add_app_model)]="add_app_model" [add_app_signal]="add_app_signal()" [(selectedApp)]="selectedApp"></app-table>
+    </div>
+    @if(option_menu()){
+      <div class="col-span-3">
+        <app-menu class="w-full" [(dock_event)]="dock_event" (add_app)="addApp($event)"></app-menu>
+      </div>
+    }
+  </div>
+</div>
+<app-dock [(dock_event)]="dock_event" (add_app)="addApp($event)" [(selectedApp)]="selectedApp"></app-dock>

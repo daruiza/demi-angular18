@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  angular:
+    container_name: demo_angular18
+    image: node:22.7.0-alpine3.20
+    working_dir: /app
+    ports:
+      - 4242:4242
+    volumes:
+      - /mnt/c/software/demo-angular18:/app
+    #command: sh -c "npm install -g @angular/cli && ng new demo-angular18"
+    command: sh -c "npm install -g @angular/cli && npm run start"

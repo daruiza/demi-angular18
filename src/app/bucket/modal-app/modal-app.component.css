@@ -1,0 +1,9 @@
+::ng-deep .card .p-button{
+    padding: 0.35rem 1.25rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+::ng-deep .p-dropdown{
+    width: 100%;
+}

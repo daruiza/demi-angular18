@@ -1,0 +1,128 @@
+<div class="card flex justify-content-center">
+    <p-stepper class="w-full">
+        <p-stepperPanel header="Genaral">
+            <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="container">
+                        <form [formGroup]="appForm">
+                            <div formGroupName="general">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <p-floatLabel>
+                                        <input pInputText id="appname" formControlName="name" />
+                                        <label for="appname">Appname</label>
+                                    </p-floatLabel>
+
+                                    <p-floatLabel>
+                                        <input pInputText id="devname" formControlName="developer" />
+                                        <label for="devname">Developername</label>
+                                    </p-floatLabel>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex pt-16 justify-content-end justify-end">
+                    <p-button
+                        class="p-button-secondary"
+                        [disabled]="appForm.get('general')?.invalid"
+                        severity="secondary" 
+                        label="Next" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Fechas">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="container">
+                        <form [formGroup]="appForm">
+                            <div formGroupName="dates">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <p-calendar
+                                        dateFormat="yy/mm/dd"
+                                        appendTo="body" 
+                                        formControlName="date_born" 
+                                        [iconDisplay]="'input'" 
+                                        [showIcon]="true" 
+                                        inputId="icondisplay" />
+                                    <p-calendar
+                                        dateFormat="yy/mm/dd"
+                                        appendTo="body" 
+                                        formControlName="date_hire" 
+                                        [iconDisplay]="'input'" 
+                                        [showIcon]="true" 
+                                        inputId="icondisplay" />
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="flex pt-16 justify-content-between justify-between">
+                    <p-button
+                        class="p-button-secondary"
+                        severity="secondary" 
+                        label="Back" 
+                        icon="pi pi-arrow-left" 
+                        (onClick)="prevCallback.emit()" />
+                    <p-button
+                        class="p-button-secondary"
+                        [disabled]="appForm.get('dates')?.invalid"
+                        severity="secondary"
+                        label="Next" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Adicional">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="container">
+                        <form [formGroup]="appForm">
+                            <div formGroupName="aditional">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <p-dropdown
+                                        appendTo="body"
+                                        class="w-full"
+                                        [options]="status_list" 
+                                        formControlName="status"  
+                                        optionLabel="name" 
+                                        placeholder="Estado actual" />
+
+                                    <p-dropdown
+                                        appendTo="body"
+                                        class="w-full"
+                                        [options]="technology_list" 
+                                        formControlName="technology"  
+                                        optionLabel="name" 
+                                        placeholder="Tecnológia" />    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex pt-16 justify-content-start justify-between">
+                    <p-button
+                        class="p-button-secondary"
+                        severity="secondary" 
+                        label="Back" 
+                        icon="pi pi-arrow-left" 
+                        (onClick)="prevCallback.emit()" />
+                    <p-button
+                        class="p-button-primary"
+                        [disabled]="appForm.get('aditional')?.invalid"
+                        severity="secondary" 
+                        label="Guardar" 
+                        icon="pi pi-save" 
+                        iconPos="right" 
+                        (onClick)="saveApp()" />    
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+    </p-stepper>
+</div>

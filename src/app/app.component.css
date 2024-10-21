@@ -1,0 +1,16 @@
+
+.container{
+    max-width: calc(100vw - 1rem);
+    height: calc(100vh - 1rem);
+}
+
+.container .grid div{
+    height: calc(100vh - 1rem);
+    /* background-color:aliceblue; */
+}
+
+.container .grid > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

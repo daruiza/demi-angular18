@@ -1,0 +1,15 @@
+<ng-container>
+    @if(dock_event() && dock_option()){        
+        <p-dock [model]="items" [position]="'bottom'">
+            <ng-template pTemplate="item" let-item>
+                @if(item.label=="Edit" || item.label=="Trash"){
+                    <p-button [disabled]="!selectedApp()" [icon]="item.icon"  severity="secondary" [rounded]="true"/>
+                }
+                @else {
+                    <p-button [icon]="item.icon"  severity="secondary" [rounded]="true"/>
+                }
+
+            </ng-template>
+        </p-dock>
+    }
+</ng-container>

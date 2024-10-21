@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
+/* @import "primeng/resources/primeng.css"; */
+/* @import "primeicons/primeicons.css"; */
+
+/* @tailwind base;  se comenta para que conviva con prime ng*/
+@tailwind components;
+@tailwind utilities;
+
+/* Theme */
+
+p-button.p-button-primary .p-button, p-button.p-button-secondary .p-button {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+p-button.p-button-primary .p-button span, 
+p-button.p-button-secondary .p-button span,
+p-confirmdialog .p-confirm-dialog-reject span,
+p-confirmdialog .p-confirm-dialog-accept span{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+p-button.p-button-primary .p-button, 
+p-button.p-button-secondary .p-button,
+p-confirmdialog .p-confirm-dialog-reject,
+p-confirmdialog .p-confirm-dialog-accept {
+    border-radius: 30px;
+    padding: 8px 46px 8px 46px;
+}
+
+p-button.p-button-primary .p-button:has(.p-button-icon), 
+p-button.p-button-secondary .p-button:has(.p-button-icon) {
+    border-radius: 30px;
+    padding: 8px 34px 8px 34px;
+}
+
+p-button.p-button-primary .p-button,
+p-confirmdialog .p-confirm-dialog-accept{
+    background: #198600;
+    color: #fafdf9;
+}
+
+p-button.p-button-primary .p-button:not(:disabled):hover,
+p-confirmdialog .p-confirm-dialog-accept:hover{
+    background: #005121;    
+}
+
+p-button.p-button-secondary .p-button,
+p-confirmdialog .p-confirm-dialog-reject{
+    color: #005121;  
+    background: #fafdf9
+}
+
+p-button.p-button-secondary .p-button:not(:disabled):hover,
+p-confirmdialog .p-confirm-dialog-reject:hover{
+    color: #005121;  
+    background: #F6FFF4
+}
+
+p-button.p-button-primary-text .p-button{
+    color: #198600; 
+}
+
+p-button.p-button-primary-text .p-button:not(:disabled):hover{
+    color: #005121;    
+}
+
+p-tableradiobutton  .p-radiobutton .p-radiobutton-box.p-highlight{
+    border-color: #198600;
+    background: #198600;
+}
+
+p-tableradiobutton .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover{
+    border-color: #005121;
+}
+
+p-tableradiobutton  .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus{
+    box-shadow: 0 0 0 0.2rem #F6FFF4;
+    border-color: #198600;
+}
+
+.p-datatable-table tr th {
+    color: #F6FFF4;
+    background: #198600;
+    border: 1px solid #198600;
+}
+
+.p-datatable-table thead tr th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.p-datatable-table thead tr th:last-child {
+    border-top-right-radius: 16px;
+}
+
+app-dock p-button .p-button-rounded {
+    color: #F6FFF4;
+    background: #198600;
+    border: 1px solid #198600;
+}
