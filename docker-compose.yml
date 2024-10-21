@@ -8,6 +8,6 @@ services:
     ports:
       - 4242:4242
     volumes:
-      - /mnt/c/software/demo-angular18:/app
+      - ./:/app
     #command: sh -c "npm install -g @angular/cli && ng new demo-angular18"
     command: sh -c "npm install -g @angular/cli && npm run start"
